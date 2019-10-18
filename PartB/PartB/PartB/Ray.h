@@ -17,7 +17,7 @@ struct Camera {
 bool trace(
 	const Vec3f& orig, const Vec3f& dir,
 	const std::vector<std::unique_ptr<Object>>& objects,
-	float& tNear, uint32_t& index, Object** hitObject);
+	float& tNear, uint32_t& index, Object** hitObject, Object* ignoreObject);
 
 
 Vec3f castRay(

@@ -1,4 +1,3 @@
-//#include "Ray.h"
 #include <cstdlib>
 #include <utility>
 #include "Vec3f.h"
@@ -6,11 +5,14 @@
 #include "MeshTriangle.h"
 #include "Ray.h"
 
+
+// main render function
 void render(
 	const Camera& camera,
 	const std::vector<std::unique_ptr<Object>>& objects,
 	const std::vector<std::unique_ptr<Light>>& lights)
 {
+	// width/height of screen
 	float width = camera.screen.first;
 	float height = camera.screen.second;
 
@@ -19,19 +21,21 @@ void render(
 	float scale = tan(deg2rad(camera.fov * 0.5));
 	float imageAspectRatio = width / (float)height;
 	Vec3f orig(0);
+
+	// render each pixel
 	for (uint32_t j = 0; j < height; ++j) {
 		for (uint32_t i = 0; i < width; ++i) {
 			// generate primary ray direction
 			float x = (2 * (i + 0.5) / (float)width - 1) * imageAspectRatio * scale;
 			float y = (1 - 2 * (j + 0.5) / (float)height) * scale;
 			Vec3f dir = normalize(Vec3f(x, y, -1));
-			*(pix++) = castRay(orig, dir, objects, lights, camera, 0);
+			*(pix++) = castRay(orig, dir, objects, lights, camera, 0); // cast ray
 		}
 	}
 
 	// save framebuffer to file
 	std::ofstream ofs;
-	ofs.open("./out.ppm");
+	ofs.open("./outbig.ppm");
 	ofs << "P6\n" << width << " " << height << "\n255\n\n";
 	for (uint32_t i = 0; i < height * width; ++i) {
 		char r = (char)(255 * clampf(0, 1, framebuffer[i].x));
@@ -54,23 +58,25 @@ int main(int argc, char** argv)
 {
 	// creating the scene (adding objects and lights)
 
+	// make a camera
 	Camera camera;
 	camera.fov = 45;
-	camera.screen.first = 500;
-	camera.screen.second = 500;
+	camera.screen.first = 2048;
+	camera.screen.second = 2048;
 	camera.maxRecursions = 5;
 	camera.bgColor = Vec3f(0.1, 0.4, 0.6);
 
+	// vectors of objects and lights
 	std::vector<std::unique_ptr<Object>> objects;
 	std::vector<std::unique_ptr<Light>> lights;
 
-	Sphere* sph1 = new Sphere(Vec3f(2, 1, -6), 1);
+	// spheres
+	Sphere* sph1 = new Sphere(Vec3f(1, 1, -6), 1);
 	sph1->materialType = DIFFUSE_AND_GLOSSY;
 	sph1->diffuseColor = Vec3f(0.05, 0.4, 0.7);
 	sph1->alpha = 1.0;
-	sph1->reflection = 0.7;
-	sph1->ior = 10.0;
-	Sphere* sph2 = new Sphere(Vec3f(-1, 2, -10), 2);
+
+	Sphere* sph2 = new Sphere(Vec3f(-2, 2, -10), 2.5);
 	sph2->ior = 10.0;
 	sph2->materialType = REFLECTION_AND_REFRACTION;
 	sph2->reflection = 0.9;
@@ -80,7 +86,6 @@ int main(int argc, char** argv)
 	sph3->materialType = DIFFUSE_AND_GLOSSY;
 	sph3->diffuseColor = Vec3f(0.8, 1.0, 1.0);
 	sph3->alpha = 0.5;
-	sph3->reflection = 0.5;
 
 	Sphere* sph4 = new Sphere(Vec3f(2, 2, 12), 4);
 	sph4->materialType = DIFFUSE_AND_GLOSSY;
@@ -92,13 +97,16 @@ int main(int argc, char** argv)
 	sph5->diffuseColor = Vec3f(1.0, 0.4, 0.8);
 	sph5->alpha = 1.0;
 
+	// push spheres onto vector
 	objects.push_back(std::unique_ptr<Sphere>(sph1));
 	objects.push_back(std::unique_ptr<Sphere>(sph2));
 	objects.push_back(std::unique_ptr<Sphere>(sph3));
 	objects.push_back(std::unique_ptr<Sphere>(sph4));
 	objects.push_back(std::unique_ptr<Sphere>(sph5));
 
+	// planes
 
+	// back wall
 	Vec3f verts[4] = { {-20,-5,-25}, {20,-5,-25}, {20,15,-25}, {-20,15,-25} };
 	uint32_t vertIndex[6] = { 0, 1, 3, 1, 2, 3 };
 	Vec3f st[4] = { {0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0} };
@@ -108,7 +116,7 @@ int main(int argc, char** argv)
 
 	objects.push_back(std::unique_ptr<MeshTriangle>(mesh));
 
-
+	// floor
 	Vec3f verts2[4] = { {-20,-3,25}, {20,-3,25}, {20,-3,-25}, {-20,-3,-25} };
 	uint32_t vertIndex2[6] = { 0, 1, 3, 1, 2, 3 };
 	Vec3f st2[4] = { {0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0} };
@@ -119,6 +127,7 @@ int main(int argc, char** argv)
 
 	objects.push_back(std::unique_ptr<MeshTriangle>(mesh2));
 
+	// left wall
 	Vec3f verts3[4] = { {-8,-5,0}, {-8,100,0}, {-8,100,-25}, {-8,-5,-25} };
 	uint32_t vertIndex3[6] = { 3, 1, 0, 3, 2, 1 };
 	Vec3f st3[4] = { {0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0} };
@@ -130,6 +139,7 @@ int main(int argc, char** argv)
 
 	objects.push_back(std::unique_ptr<MeshTriangle>(mesh3));
 
+	// right wall
 	Vec3f verts4[4] = { {8,-5,0}, {8,100,0}, {8,100,-25}, {8,-5,-25} };
 	uint32_t vertIndex4[6] = { 0, 1, 2, 0, 2, 3 };
 	Vec3f st4[4] = { {0, 0, 0}, {1, 0, 0}, {1, 1, 0}, {0, 1, 0} };
@@ -141,10 +151,17 @@ int main(int argc, char** argv)
 
 	objects.push_back(std::unique_ptr<MeshTriangle>(mesh4));
 
+	// lights
 	lights.push_back(std::unique_ptr<Light>(new Light(Vec3f(-0, 70, 0), 0.8)));
 	lights.push_back(std::unique_ptr<Light>(new Light(Vec3f(4, 2, -2), 0.6)));
 	lights.push_back(std::unique_ptr<Light>(new Light(Vec3f(-4, 8, -2), 0.4)));
 	lights.push_back(std::unique_ptr<Light>(new Light(Vec3f(0, 16, 12), 0.5)));
+
+	// set light colors
+	lights[0]->color = Vec3f(1.0, 1.0, 1.0);
+	lights[1]->color = Vec3f(0.8, 0.5, 0.9);
+	lights[2]->color = Vec3f(0.5, 0.8, 0.6);
+	lights[3]->color = Vec3f(0.6, 0.9, 0.2);
 
 	// finally, render
 	render(camera, objects, lights);

@@ -46,8 +46,9 @@ inline bool solveQuadratic(const float& a, const float& b, const float& c, float
 class Light
 {
 public:
-	Light(const Vec3f& p, const Vec3f& i) : position(p), intensity(i) {}
+	Light(const Vec3f& p, const Vec3f& i) : position(p), intensity(i), color(1.0, 1.0, 1.0) {}
 	Vec3f position;
 	Vec3f intensity;
+	Vec3f color;
 };
 

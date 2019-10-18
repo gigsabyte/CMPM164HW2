@@ -68,6 +68,7 @@ Vec3f castRay(const Vec3f& orig, const Vec3f& dir, const std::vector<std::unique
 			Vec3f shadowPointOrig = (dotProduct(dir, N) < 0) ?
 				hitPoint + N * camera.bias :
 				hitPoint - N * camera.bias;
+			Vec3f tcol = Vec3f(0);
 			for (uint32_t i = 0; i < lights.size(); ++i) {
 
 				Vec3f lightDir = lights[i]->position - hitPoint;
@@ -88,11 +89,12 @@ Vec3f castRay(const Vec3f& orig, const Vec3f& dir, const std::vector<std::unique
 				else {
 					is = std::min(shadowHitObject->alpha * 2, 1.0f);
 				}
-				lightAmt += (1 - is) * lights[i]->intensity * LdotN; // (1 - inShadow) * 
+				lightAmt = (1 - is) * lights[i]->intensity * LdotN;
+				tcol += lightAmt * lights[i]->color;
 				Vec3f reflectionDirection = reflect(-lightDir, N);
 				specularColor += powf(std::max(0.f, -dotProduct(reflectionDirection, dir)), hitObject->specularExponent) * lights[i]->intensity;
 			}
-			Vec3f tCol = lightAmt * hitObject->evalDiffuseColor(0, 0) * hitObject->Kd + specularColor * hitObject->Ks;
+			Vec3f tCol = tcol * hitObject->evalDiffuseColor(0, 0) * hitObject->Kd + specularColor * hitObject->Ks;
 			Vec3f transhit = Vec3f(0);
 			if (hitObject->alpha < 1.0) {
 				transhit = castRay(hitPoint, dir, objects, lights, camera, depth + 1, 1, hitObject);
@@ -102,21 +104,6 @@ Vec3f castRay(const Vec3f& orig, const Vec3f& dir, const std::vector<std::unique
 			break;
 		}
 
-		case REFLECTION:
-		{
-			float kr;
-			fresnel(dir, N, hitObject->ior, kr);
-			Vec3f reflectionDirection = reflect(dir, N) * kr;
-			Vec3f reflectionRayOrig = (dotProduct(reflectionDirection, N) < 0) ?
-				hitPoint + N * camera.bias :
-				hitPoint - N * camera.bias;
-			hitColor = castRay(reflectionRayOrig, reflectionDirection, objects, lights, camera, depth + 1);
-			/*if (hitColor.x == camera.bgColor.x && hitColor.y == camera.bgColor.y && hitColor.z == camera.bgColor.z) {
-				if (dotProduct(N, dir) >= 0) hitColor = Vec3f(1.0, 0.0, 1.0);
-				else hitColor = camera.bgColor;
-			}*/
-			break;
-		}
 		default:
 		{
 			Vec3f lightAmt = 0, specularColor = 0;
