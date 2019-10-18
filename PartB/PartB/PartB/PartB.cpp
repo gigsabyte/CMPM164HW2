@@ -35,7 +35,7 @@ void render(
 
 	// save framebuffer to file
 	std::ofstream ofs;
-	ofs.open("./outbig.ppm");
+	ofs.open("./out.ppm");
 	ofs << "P6\n" << width << " " << height << "\n255\n\n";
 	for (uint32_t i = 0; i < height * width; ++i) {
 		char r = (char)(255 * clampf(0, 1, framebuffer[i].x));
@@ -61,8 +61,8 @@ int main(int argc, char** argv)
 	// make a camera
 	Camera camera;
 	camera.fov = 45;
-	camera.screen.first = 2048;
-	camera.screen.second = 2048;
+	camera.screen.first = 400;
+	camera.screen.second = 400;
 	camera.maxRecursions = 5;
 	camera.bgColor = Vec3f(0.1, 0.4, 0.6);
 
