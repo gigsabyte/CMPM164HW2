@@ -1,0 +1,62 @@
+﻿  PartB.cpp
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Vec3f.h(54,74): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Object.h(11,1): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Object.h(11,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Object.h(34,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Object.h(36,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\MeshTriangle.h(76,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\MeshTriangle.h(77,1): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13,11): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(14,39): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(17,39): warning C4244: 'initializing': conversion from 'float' to 'unsigned int', possible loss of data
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(19,39): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(25,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(26,12): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(62,38): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(69,43): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(71,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(76,24): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(77,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(81,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(87,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(92,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(107,42): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(117,43): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(127,43): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(128,25): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(138,43): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(139,25): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(144,74): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(145,73): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\PartB.cpp(146,74): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,16): warning C4244: 'initializing': conversion from '_Ty' to '_Ty1', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,16): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,16): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,16): warning C4244:             _Ty=int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,16): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,16): warning C4244:         and
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,16): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,16): warning C4244:             _Ty1=float
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,16): warning C4244:         ]
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message : see reference to function template instantiation 'std::pair<float,float>::pair<int,int,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :         with
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :         [
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :             _Other1=int,
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :             _Other2=int
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :         ]
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message : see reference to function template instantiation 'std::pair<float,float>::pair<int,int,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :         with
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :         [
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :             _Other1=int,
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :             _Other2=int
+C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\PartB\Ray.h(13): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:             _Ty=int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         and
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:             _Ty2=float
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\utility(127,1): warning C4244:         ]
+  PartB.vcxproj -> C:\Users\thegi\Documents\GitHub\CMPM164HW2\PartB\PartB\Debug\PartB.exe
